@@ -1,4 +1,4 @@
-package main;
+package trainseat;
 
 import jssc.SerialPortException;
 

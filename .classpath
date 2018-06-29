@@ -6,5 +6,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="jssc-2.8.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

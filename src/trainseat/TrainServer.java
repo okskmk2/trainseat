@@ -1,4 +1,4 @@
-package main;
+package trainseat;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -27,16 +27,16 @@ public class TrainServer extends JFrame {
 		contentPane.setLayout(null);
 
 		JComboBox comboBox = new JComboBox();
-		comboBox.addItem("1호차");
-		comboBox.addItem("2호차");
-		comboBox.addItem("3호차");
-		comboBox.addItem("4호차");
-		comboBox.addItem("5호차");
-		comboBox.addItem("6호차");
-		comboBox.addItem("7호차");
-		comboBox.addItem("8호차");
-		comboBox.addItem("9호차");
-		comboBox.addItem("10호차");
+		comboBox.addItem("1�샇李�");
+		comboBox.addItem("2�샇李�");
+		comboBox.addItem("3�샇李�");
+		comboBox.addItem("4�샇李�");
+		comboBox.addItem("5�샇李�");
+		comboBox.addItem("6�샇李�");
+		comboBox.addItem("7�샇李�");
+		comboBox.addItem("8�샇李�");
+		comboBox.addItem("9�샇李�");
+		comboBox.addItem("10�샇李�");
 
 		comboBox.setBounds(161, 10, 106, 29);
 		contentPane.add(comboBox);
