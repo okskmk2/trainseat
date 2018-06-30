@@ -1,34 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.collections.FXCollections ?>
-<?import java.lang.String?>
 
-<Pane fx:controller="application.Controller" maxHeight="-Infinity"
-	maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-	prefHeight="400.0" prefWidth="600.0"
-	xmlns="http://javafx.com/javafx/8.0.171"
-	xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
 	<children>
-		<TabPane id="main_tab_pane" prefHeight="400.0"
-			prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+		<TabPane id="main_tab_pane" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
 				<Tab id="train_tab" text="열차">
 					<content>
-						<AnchorPane minHeight="0.0" minWidth="0.0"
-							prefHeight="180.0" prefWidth="200.0">
+						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 							<children>
-								<TextArea id="buslogview" layoutX="15.0"
-									layoutY="215.0" prefHeight="135.0" prefWidth="570.0" />
-								<ComboBox fx:id="busCombo" layoutX="225.0"
-									layoutY="15.0" prefWidth="150.0" onAction="#onchange">
+								<TextArea id="buslogview" layoutX="15.0" layoutY="215.0" prefHeight="135.0" prefWidth="570.0" />
+								<ComboBox fx:id="busCombo" layoutX="225.0" layoutY="15.0" onAction="#onchange" prefWidth="150.0">
 									<items>
 										<FXCollections fx:factory="observableArrayList">
 											<String fx:value="1호차" />
@@ -41,55 +34,46 @@
 										<String fx:value="1호차" />
 									</value>
 								</ComboBox>
-								<Button fx:id="seat11" layoutX="15.0" layoutY="60.0"
-									mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0"
-									style="-fx-background-color: #3dee0d;" text="1-1" />
-								<Button id="seat14" layoutX="15.0" layoutY="130.0"
-									mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0"
-									style="-fx-background-color: #3dee0d;" text="1-4" />
-								<Button fx:id="seat12" layoutX="85.0" layoutY="60.0"
-									mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0"
-									style="-fx-background-color: #3dee0d;" text="1-2" />
-								<Button id="seat15" layoutX="85.0" layoutY="130.0"
-									mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0"
-									style="-fx-background-color: #3dee0d;" text="1-5" />
-								<Button fx:id="seat13" layoutX="155.0" layoutY="60.0"
-									mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0"
-									style="-fx-background-color: #3dee0d;" text="1-3" />
-								<Button id="seat16" layoutX="155.0" layoutY="130.0"
-									mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0"
-									style="-fx-background-color: #3dee0d;" text="1-6" />
-								<Button id="seat41" layoutX="385.0" layoutY="60.0"
-									mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0"
-									style="-fx-background-color: #3dee0d;" text="4-1" />
-								<Button id="seat44" layoutX="385.0" layoutY="130.0"
-									mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0"
-									style="-fx-background-color: #3dee0d;" text="4-4" />
-								<Button id="seat42" layoutX="455.0" layoutY="60.0"
-									mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0"
-									style="-fx-background-color: #3dee0d;" text="4-2" />
-								<Button id="seat45" layoutX="455.0" layoutY="130.0"
-									mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0"
-									style="-fx-background-color: #3dee0d;" text="4-5" />
-								<Button id="seat43" layoutX="525.0" layoutY="60.0"
-									mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0"
-									style="-fx-background-color: #3dee0d;" text="4-3" />
-								<Button id="seat46" layoutX="525.0" layoutY="130.0"
-									mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0"
-									style="-fx-background-color: #3dee0d;" text="4-6" />
+								<Button fx:id="seat11" layoutX="15.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #3dee0d;" text="1-1" />
+								<Button id="seat14" layoutX="15.0" layoutY="130.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="1-4" />
+								<Button fx:id="seat12" layoutX="85.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #3dee0d;" text="1-2" />
+								<Button id="seat15" layoutX="85.0" layoutY="130.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="1-5" />
+								<Button fx:id="seat13" layoutX="155.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #3dee0d;" text="1-3" />
+								<Button id="seat16" layoutX="155.0" layoutY="130.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="1-6" />
+								<Button id="seat41" layoutX="385.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="4-1" />
+								<Button id="seat44" layoutX="385.0" layoutY="130.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="4-4" />
+								<Button id="seat42" layoutX="455.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="4-2" />
+								<Button id="seat45" layoutX="455.0" layoutY="130.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="4-5" />
+								<Button id="seat43" layoutX="525.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="4-3" />
+								<Button id="seat46" layoutX="525.0" layoutY="130.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="4-6" />
+                        <Label layoutX="160.0" layoutY="20.0" text="차량번호" />
 							</children>
 						</AnchorPane>
 					</content>
 				</Tab>
 				<Tab id="management_tab" text="관리">
 					<content>
-						<AnchorPane minHeight="0.0" minWidth="0.0"
-							prefHeight="180.0" prefWidth="200.0">
+						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 							<children>
-								<ComboBox layoutX="21.0" layoutY="21.0"
-									prefWidth="150.0" />
-								<TextField id="trainlogview" layoutX="13.0"
-									layoutY="171.0" prefHeight="176.0" prefWidth="574.0" />
+								<ComboBox layoutX="95.0" layoutY="20.0" prefWidth="150.0">
+									<items>
+										<FXCollections fx:factory="observableArrayList">
+											<String fx:value="1351 신창행" />
+											<String fx:value="8451 천안행" />
+											<String fx:value="8425 광운대행" />
+											<String fx:value="9451 청량리행" />
+											<String fx:value="1245 신창행" />
+											<String fx:value="1513 천안급행" />
+											<String fx:value="5621 병점행" />
+											<String fx:value="2156 병점행" />
+										</FXCollections>
+									</items>
+									<value>
+										<String fx:value="1351 신창행" />
+									</value>
+								</ComboBox>
+								<TextField id="trainlogview" layoutX="15.0" layoutY="65.0" prefHeight="285.0" prefWidth="570.0" />
+                        <Label layoutX="25.0" layoutY="25.0" text="열차번호" />
 							</children>
 						</AnchorPane>
 					</content>
