@@ -34,11 +34,11 @@
 										<String fx:value="1호차" />
 									</value>
 								</ComboBox>
-								<Button fx:id="seat11" layoutX="15.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #3dee0d;" text="1-1" />
+								<Button fx:id="seat11" layoutX="15.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="1-1" />
 								<Button id="seat14" layoutX="15.0" layoutY="130.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="1-4" />
-								<Button fx:id="seat12" layoutX="85.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #3dee0d;" text="1-2" />
+								<Button fx:id="seat12" layoutX="85.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="1-2" />
 								<Button id="seat15" layoutX="85.0" layoutY="130.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="1-5" />
-								<Button fx:id="seat13" layoutX="155.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #3dee0d;" text="1-3" />
+								<Button fx:id="seat13" layoutX="155.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="1-3" />
 								<Button id="seat16" layoutX="155.0" layoutY="130.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="1-6" />
 								<Button id="seat41" layoutX="385.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="4-1" />
 								<Button id="seat44" layoutX="385.0" layoutY="130.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="4-4" />

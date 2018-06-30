@@ -35,7 +35,7 @@ public class Controller implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		System.out.println("initialize");
 		try {
-			new SerialConnector(buslogview);
+			new SerialConnector(buslogview, seat11, seat12, seat13);
 		} catch (SerialPortException e) {
 			e.printStackTrace();
 		}
