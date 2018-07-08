@@ -1,5 +1,11 @@
 package application;
 
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import jssc.SerialPort;
@@ -12,6 +18,8 @@ public class SerialConnector {
 	private String full = "가능";
 	private String empty = "불가능";
 	private int buslogviewMaxValue = 2000; // 로그창에 지나치게 많은 텍스트가 있으면 스크롤이 내려가지 않는다.
+	private DAO dao = new DAO();
+	DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 	
 	public SerialConnector(TextArea textArea, Button seat11, Button seat12, Button seat13) throws SerialPortException {
 		SerialPort serialPort = new SerialPort("COM3");
@@ -61,6 +69,9 @@ public class SerialConnector {
 	private void setColor(Button seat, String state) {
 			if (full.equals(state)) {
 				seat.setStyle("-fx-background-color: #3dee0d;");
+				Date today = Calendar.getInstance().getTime();        
+				String reg_dt = df.format(today);
+//				dao.insertTrainLog(seat_no, 1, 1, 1, reg_dt); // TODO
 			} else if(empty.equals(state)) {
 				seat.setStyle("-fx-background-color: #ea2b2b;");
 			} else {
