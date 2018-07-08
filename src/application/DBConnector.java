@@ -3,8 +3,8 @@ package application;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 public class DBConnector {
-	private static final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/traindb";
+	private static final String DRIVER_CLASS_NAME = "com.mysql.cj.jdbc.Driver";
+	private static final String DB_URL = "jdbc:mysql://localhost:3306/traindb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	private static final String DB_USER = "trainseat";
 	private static final String DB_PASSWORD = "1234";
 	private static final int CONN_POOL_SIZE = 5;
