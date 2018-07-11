@@ -12,15 +12,10 @@ public class DBConnector {
 	private BasicDataSource bds = new BasicDataSource();
 
 	private DBConnector() {
-		//Set database driver name
 		bds.setDriverClassName(DRIVER_CLASS_NAME);
-		//Set database url
 		bds.setUrl(DB_URL);
-		//Set database user
 		bds.setUsername(DB_USER);
-		//Set database password
 		bds.setPassword(DB_PASSWORD);
-		//Set the connection pool size
 		bds.setInitialSize(CONN_POOL_SIZE);
 	}
 
