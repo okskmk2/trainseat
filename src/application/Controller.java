@@ -18,10 +18,15 @@ import jssc.SerialPortEvent;
 import jssc.SerialPortEventListener;
 import jssc.SerialPortException;
 
-public class Controller implements Initializable{
+public class Controller implements Initializable {
+
+	private int eventCount;
 
 	@FXML
-	private TextArea buslogview;
+	private TextArea trainlogview;
+	
+	@FXML
+	private TextArea managementlogview;
 
 	@FXML
 	private Button seat11;
@@ -29,18 +34,19 @@ public class Controller implements Initializable{
 	private Button seat12;
 	@FXML
 	private Button seat13;
-	
+
 	@FXML
 	private ComboBox<String> busCombo;
-	
+
 	@FXML
 	private void onchange(ActionEvent event) {
 		System.out.println(busCombo.getValue());
 	}
-	
+
 	private DAO dao = new DAO();
-	DateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
-	
+	DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // DB에 입력할 날짜형식
+	DateFormat dfView = new SimpleDateFormat("[yyyy-MM-dd / HH:mm:ss]"); // 화면 로그뷰에 출력할 날짜형식
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		System.out.println("initialize");
@@ -48,20 +54,31 @@ public class Controller implements Initializable{
 			SerialPort serialPort = new SerialPort("COM3");
 			serialPort.openPort();
 			serialPort.setParams(115200, 8, 1, 0);
+
 			serialPort.addEventListener(new SerialPortEventListener() {
 				@Override
 				public void serialEvent(SerialPortEvent event) {
 					if (event.isRXCHAR() && event.getEventValue() > 0) {
 						try {
 							System.out.println("============");
-							String receivedData = serialPort.readString();
+							String receivedData = serialPort.readString().trim();
 							System.out.println("들어온 값 : " + receivedData);
-							
-							if (buslogview.getText().length() > TrainSeatConst.BUS_LOGVIEW_MAXVALUE) {
-								buslogview.setText("");
+							if (eventCount == 0) {
+								Date today = Calendar.getInstance().getTime();
+								String reg_dt = df.format(today);
+								String reg_dt_view = dfView.format(today);
+								dao.insertTrainLog(reg_dt, "1호차 서버 접속 성공");
+								dao.insertTrainManagementLog(reg_dt, "1351신창행 1호차 서버 접속 성공");
+								trainlogview.appendText(reg_dt_view + " " + "1호차 서버 접속 성공\n");
+								managementlogview.appendText(reg_dt_view + " " + "1351신창행 1호차 서버 접속 성공\n");
 							}
-							
-							String[] splitedData = receivedData.trim().split(" ");
+							eventCount++;
+
+							if (trainlogview.getText().length() > TrainSeatConst.BUS_LOGVIEW_MAXVALUE) {
+								trainlogview.setText("");
+							}
+
+							String[] splitedData = receivedData.split(" ");
 							if (splitedData.length == 2) {
 								switch (splitedData[0]) {
 								case "1-1":
@@ -92,22 +109,29 @@ public class Controller implements Initializable{
 			e.printStackTrace();
 		}
 	}
+
 	private void setColor(Button seat, String state, String seat_no, String receivedData) {
 		if (TrainSeatConst.FULL.equals(state)) {
 			seat.setStyle(TrainSeatConst.FULL_COLOR);
-			Date today = Calendar.getInstance().getTime();        
+			Date today = Calendar.getInstance().getTime();
 			String reg_dt = df.format(today);
-			dao.insertTrainLog(seat_no, 1, 1, 1, reg_dt);
-			buslogview.appendText(receivedData);
-		} else if(TrainSeatConst.EMPTY.equals(state)) {
+			String reg_dt_view = dfView.format(today);
+			dao.insertTrainLog(reg_dt, receivedData);
+			dao.insertTrainManagementLog(reg_dt, "1호차 "+ receivedData);
+			trainlogview.appendText("\n"+reg_dt_view + " " + receivedData);
+			managementlogview.appendText("\n"+reg_dt_view + " 1호차 " + receivedData);
+		} else if (TrainSeatConst.EMPTY.equals(state)) {
 			seat.setStyle(TrainSeatConst.EMPTY_COLOR);
-			Date today = Calendar.getInstance().getTime();        
+			Date today = Calendar.getInstance().getTime();
 			String reg_dt = df.format(today);
-			dao.insertTrainLog(seat_no, 1, 1, 0, reg_dt);
-			buslogview.appendText(receivedData);
+			String reg_dt_view = dfView.format(today);
+			dao.insertTrainLog(reg_dt, receivedData);
+			dao.insertTrainManagementLog(reg_dt, "1호차 "+ receivedData);
+			trainlogview.appendText("\n"+reg_dt_view + " " + receivedData);
+			managementlogview.appendText("\n"+reg_dt_view + " 1호차 " + receivedData);
 		} else {
 			System.out.println("상태 일치없음(" + state + ")");
 		}
-}
-	
+	}
+
 }
